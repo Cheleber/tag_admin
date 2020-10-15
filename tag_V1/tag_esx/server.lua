@@ -3,7 +3,8 @@ local tagoncheck = {}
 local index = 0 -- DONT TOUCH PLEASE!
 
 RegisterServerEvent("Cheleber:SVstarttag")
-AddEventHandler('Cheleber:SVstarttag', function(playerId)
+AddEventHandler('Cheleber:SVstarttag', function()
+    local playerId = source
     local grupos = getIdentity(playerId)
     if grupos.group == 'admin' or grupos.group == 'superadmin' then
 	    dprint('Allowed: ' .. playerId)
@@ -16,7 +17,8 @@ AddEventHandler('Cheleber:SVstarttag', function(playerId)
 end)
 	
 RegisterServerEvent("Cheleber:SVstarttagjoin")
-AddEventHandler('Cheleber:SVstarttagjoin', function(playerId)
+AddEventHandler('Cheleber:SVstarttagjoin', function()
+    local playerId = source
     local grupos = getIdentity(playerId)
     if grupos.group == 'admin' or grupos.group == 'superadmin' then
 	    dprint('Allowed: ' .. playerId)
@@ -56,33 +58,29 @@ function CheleberCleanTagTable()
 	TriggerClientEvent("Cheleber:tagclean", -1)
 end
 
-AddEventHandler('chatMessage', function(source, color, msg)
-	cm = stringsplit(msg, " ")
-	
-	if cm[1] == "/tag" then
-		CancelEvent()
-		local grupos = getIdentity(source)
-        if grupos.group == 'admin' or grupos.group == 'superadmin' then
-	        if tagoncheck[source] == true  then
-			    tagoncheck[source] = false
-		        index = 0
-			    for k in pairs (tagon) do
-        		    tagon [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-				TriggerClientEvent('chatMessage', source, "Tag OFF!")
-		    else
-			    tagoncheck[source] = true
-			    index = 0
-			    for k in pairs (tagon) do
-        		    tagon [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-			    TriggerClientEvent('chatMessage', source, "Tag ON!")
-			end
-		end
-	end	
-end)
+
+RegisterCommand("tag", function(source, args, rawCommand)
+    local grupos = getIdentity(source)
+    if grupos.group == 'admin' or grupos.group == 'superadmin' then
+	    if tagoncheck[source] == true  then
+			tagoncheck[source] = false
+		    index = 0
+		    for k in pairs (tagon) do
+        		tagon [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+		    TriggerClientEvent('chatMessage', source, "Tag OFF!")
+		else
+			tagoncheck[source] = true
+			index = 0
+			for k in pairs (tagon) do
+        		tagon [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+			TriggerClientEvent('chatMessage', source, "Tag ON!")
+	    end
+	end
+end, true)
 
 
 function stringsplit(inputstr, sep)
