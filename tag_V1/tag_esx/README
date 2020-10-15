@@ -16,19 +16,5 @@ ModoDebug = false -- Activate debug mode, for nerds hehe
 
 
 -------------------------------------------------------------------------------------------
-| -- CONFIG STEAMID/LICENSE (LEGACY) PREMISSIONS -- |
 
-1. Drag the resource "tag_steamid" to your server resource folder.
-
-2. Add this line to your server.cfg file: "start tag_steamid"
-
-3. Add your Admins steamid or license to "config.lua":
-
-admins = {
-    'steam:110000105c4d991',
-    'license:d37422e2e3892d1e811f0bc1049128b482ebf985',
-}
-
-
-4. Start your server!
 
