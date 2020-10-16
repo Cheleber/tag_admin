@@ -4,7 +4,7 @@ local index = 0 -- DONT TOUCH PLEASE!
 
 RegisterServerEvent("Cheleber:SVstarttag")
 AddEventHandler('Cheleber:SVstarttag', function()
-    local source = playerId
+    local playerId = source
     if IsPlayerAceAllowed(playerId, "cheleber.tag") then
 	    dprint('Allowed: ' .. playerId)
 	    index = index + 1
@@ -17,7 +17,7 @@ end)
 	
 RegisterServerEvent("Cheleber:SVstarttagjoin")
 AddEventHandler('Cheleber:SVstarttagjoin', function()
-    local source = playerId
+    local playerId = source
     if IsPlayerAceAllowed(playerId, "cheleber.tag") then
 	    dprint('Allowed: ' .. playerId)
 	    index = index + 1
