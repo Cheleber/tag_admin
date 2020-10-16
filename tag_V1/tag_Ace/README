@@ -16,5 +16,17 @@ ModoDebug = false -- Activate debug mode, for nerds hehe
 
 
 -------------------------------------------------------------------------------------------
+| -- CONFIG ACE PREMISSIONS -- |
 
+1. Drag the resource "tag_steamid" to your server resource folder.
 
+2. Add this line to your server.cfg file: "start tag_esx"
+
+3. Add your Admins steamid or license to you server “server.cfg”:
+
+add_ace group.admin cheleber allow	                 # allow tag for admins
+add_ace group.moderator cheleber allow 			 # allow tag for moderators
+add_ace group.moderator cheleber.tag deny		 # disallowt tag moderators
+add_principal identifier.steam:110000112345678 group.admin # Add this identifier to the admin group
+
+4. Start your server!

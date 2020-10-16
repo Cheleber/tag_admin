@@ -16,5 +16,11 @@ ModoDebug = false -- Activate debug mode, for nerds hehe
 
 
 -------------------------------------------------------------------------------------------
+| -- CONFIG ESX PREMISSIONS -- |
 
+1. Drag the resource "tag_steamid" to your server resource folder.
+
+2. Add this line to your server.cfg file: "start tag_esx"
+
+3. Start your server!
 
