@@ -21,28 +21,28 @@ local helperindex = 0 -- DONT TOUCH PLEASE!
 RegisterServerEvent("Cheleber:SVstarttag")
 AddEventHandler('Cheleber:SVstarttag', function()
     local playerId = source
-    if IsPlayerAceAllowed(playerId, "tagsuperadmin") then
+    if IsPlayerAceAllowed(playerId, "cheleber.tagsuperadmin") then
 	    dprint('Allowed Super Admin: ' .. playerId)
 	    superadminindex = superadminindex + 1
 	    tagonsuperadmin[superadminindex] = {
 	        ['id'] = playerId,
 	    }
 	end
-	if IsPlayerAceAllowed(playerId, "tagadmin") then
+	if IsPlayerAceAllowed(playerId, "cheleber.tagadmin") then
 	    dprint('Allowed Admin: ' .. playerId)
 	    adminindex = adminindex + 1
 	    tagonadmin[adminindex] = {
 	        ['id'] = playerId,
 	    }
 	end
-	if IsPlayerAceAllowed(playerId, "tagmod") then
+	if IsPlayerAceAllowed(playerId, "cheleber.tagmod") then
 	    dprint('Allowed Mod: ' .. playerId)
 	    modindex = modindex + 1
 	    tagonmod[modindex] = {
 	        ['id'] = playerId,
 	    }
 	end
-	if IsPlayerAceAllowed(playerId, "taghelper") then
+	if IsPlayerAceAllowed(playerId, "cheleber.taghelper") then
 	    dprint('Allowed Helper: ' .. playerId)
 	    helperindex = helperindex + 1
 	    tagonhelper[helperindex] = {
@@ -58,7 +58,7 @@ end)
 RegisterServerEvent("Cheleber:SVstarttagjoin")
 AddEventHandler('Cheleber:SVstarttagjoin', function()
     local playerId = source
-    if IsPlayerAceAllowed(playerId, "tagsuperadmin") then
+    if IsPlayerAceAllowed(playerId, "cheleber.tagsuperadmin") then
 	    dprint('Allowed Super Admin: ' .. playerId)
 	    superadminindex = superadminindex + 1
 	    tagonchecksuperadmin[playerId] = true
@@ -66,7 +66,7 @@ AddEventHandler('Cheleber:SVstarttagjoin', function()
 	        ['id'] = playerId,
 	    }
 	end
-	if IsPlayerAceAllowed(playerId, "tagadmin") then
+	if IsPlayerAceAllowed(playerId, "cheleber.tagadmin") then
 	    dprint('Allowed Admin: ' .. playerId)
 	    adminindex = adminindex + 1
 	    tagoncheckadmin[playerId] = true
@@ -74,7 +74,7 @@ AddEventHandler('Cheleber:SVstarttagjoin', function()
 	        ['id'] = playerId,
 	    }
 	end
-	if IsPlayerAceAllowed(playerId, "tagmod") then
+	if IsPlayerAceAllowed(playerId, "cheleber.tagmod") then
 	    dprint('Allowed Mod: ' .. playerId)
 	    modindex = modindex + 1
 	    tagoncheckmod[playerId] = true
@@ -82,7 +82,7 @@ AddEventHandler('Cheleber:SVstarttagjoin', function()
 	        ['id'] = playerId,
 	    }
 	end
-	if IsPlayerAceAllowed(playerId, "taghelper") then
+	if IsPlayerAceAllowed(playerId, "cheleber.taghelper") then
 	    dprint('Allowed Helper: ' .. playerId)
 	    helperindex = helperindex + 1
 	    tagoncheckhelper[playerId] = true
@@ -187,81 +187,80 @@ function CheleberCleanTagTable()
 end
 
 RegisterCommand("tag", function(source, args, rawCommand)
-    if IsPlayerAceAllowed(playerId, "tagsuperadmin") then
+    if IsPlayerAceAllowed(playerId, "cheleber.tagsuperadmin") then
 	    if tagonchecksuperadmin[source] == true  then
 			tagonchecksuperadmin[source] = false
 		    superadminindex = 0
 			for k in pairs (tagonsuperadmin) do
-        		    tagonsuperadmin [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-				TriggerClientEvent('chatMessage', source, "Tag OFF!")
-		    else
-			    tagonchecksuperadmin[source] = true
-			    superadminindex = 0
-			    for k in pairs (tagonsuperadmin) do
-        		    tagonsuperadmin [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-			    TriggerClientEvent('chatMessage', source, "Tag ON!")
-			end
+        		tagonsuperadmin [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+		    TriggerClientEvent('chatMessage', source, "Tag OFF!")
+	    else
+			tagonchecksuperadmin[source] = true
+			superadminindex = 0
+			for k in pairs (tagonsuperadmin) do
+        		tagonsuperadmin [k] = nil
+    		end
+            TriggerClientEvent("Cheleber:tagclean", -1)
+			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
-		if IsPlayerAceAllowed(playerId, "tagadmin") then
-	        if tagoncheckadmin[source] == true  then
-			    tagoncheckadmin[source] = false
-		        adminindex = 0
-			    for k in pairs (tagonadmin) do
-        		    tagonadmin [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-				TriggerClientEvent('chatMessage', source, "Tag OFF!")
-		    else
-			    tagoncheckadmin[source] = true
-			    adminindex = 0
-			    for k in pairs (tagonadmin) do
-        		    tagonadmin [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-			    TriggerClientEvent('chatMessage', source, "Tag ON!")
-			end
+	end
+	if IsPlayerAceAllowed(playerId, "cheleber.tagadmin") then
+	    if tagoncheckadmin[source] == true  then
+			tagoncheckadmin[source] = false
+		    adminindex = 0
+			for k in pairs (tagonadmin) do
+        		tagonadmin [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+		    TriggerClientEvent('chatMessage', source, "Tag OFF!")
+		else
+			tagoncheckadmin[source] = true
+			adminindex = 0
+			for k in pairs (tagonadmin) do
+        		tagonadmin [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
-		if IsPlayerAceAllowed(playerId, "tagmod") then
-	        if tagoncheckmod[source] == true  then
-			    tagoncheckmod[source] = false
-		        modindex = 0
-			    for k in pairs (tagonmod) do
-        		    tagonmod [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-				TriggerClientEvent('chatMessage', source, "Tag OFF!")
-		    else
-			    tagoncheckmod[source] = true
-			    modindex = 0
-			    for k in pairs (tagonmod) do
-        		    tagonmod [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-			    TriggerClientEvent('chatMessage', source, "Tag ON!")
-			end
+	end
+    if IsPlayerAceAllowed(playerId, "cheleber.tagmod") then
+	    if tagoncheckmod[source] == true  then
+			tagoncheckmod[source] = false
+		    modindex = 0
+			for k in pairs (tagonmod) do
+        		tagonmod [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+			TriggerClientEvent('chatMessage', source, "Tag OFF!")
+		else
+		    tagoncheckmod[source] = true
+			modindex = 0
+			for k in pairs (tagonmod) do
+        		tagonmod [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
-		if IsPlayerAceAllowed(playerId, "taghelper") then
-	        if tagoncheckhelper[source] == true  then
-			    tagoncheckhelper[source] = false
-		        helperindex = 0
-			    for k in pairs (tagonhelper) do
-        		    tagonhelper [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-				TriggerClientEvent('chatMessage', source, "Tag OFF!")
-		    else
-			    tagoncheckhelper[source] = true
-			    helperindex = 0
-			    for k in pairs (tagonhelper) do
-        		    tagonhelper [k] = nil
-    		    end
-			    TriggerClientEvent("Cheleber:tagclean", -1)
-			    TriggerClientEvent('chatMessage', source, "Tag ON!")
-			end
+	end
+	if IsPlayerAceAllowed(playerId, "cheleber.taghelper") then
+	    if tagoncheckhelper[source] == true  then
+			tagoncheckhelper[source] = false
+		    helperindex = 0
+			for k in pairs (tagonhelper) do
+        		tagonhelper [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+		    TriggerClientEvent('chatMessage', source, "Tag OFF!")
+		else
+			tagoncheckhelper[source] = true
+			helperindex = 0
+			for k in pairs (tagonhelper) do
+        		tagonhelper [k] = nil
+    		end
+			TriggerClientEvent("Cheleber:tagclean", -1)
+			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
 	end	
 end, true)

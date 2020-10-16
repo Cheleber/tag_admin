@@ -263,7 +263,7 @@ RegisterCommand("tag", function(source, args, rawCommand)
 			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
 	end
-end, true)
+end, false)
 
 
 function stringsplit(inputstr, sep)

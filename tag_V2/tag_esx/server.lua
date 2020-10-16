@@ -20,7 +20,7 @@ local helperindex = 0 -- DONT TOUCH PLEASE!
 
 RegisterServerEvent("Cheleber:SVstarttag")
 AddEventHandler('Cheleber:SVstarttag', function()
-    local playerId = (source)
+    local playerId = source
     local grupos = getIdentity(playerId)
     if grupos.group == 'superadmin' then
 	    dprint('Allowed Super Admin: ' .. playerId)
@@ -58,7 +58,7 @@ end)
 	
 RegisterServerEvent("Cheleber:SVstarttagjoin")
 AddEventHandler('Cheleber:SVstarttagjoin', function()
-    local playerId = (source)
+    local playerId = source
     local grupos = getIdentity(playerId)
     if grupos.group == 'superadmin' then
 	    dprint('Allowed Super Admin: ' .. playerId)
@@ -266,7 +266,7 @@ RegisterCommand("tag", function(source, args, rawCommand)
 			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
 	end
-end, true)
+end, false)
 
 
 function stringsplit(inputstr, sep)
