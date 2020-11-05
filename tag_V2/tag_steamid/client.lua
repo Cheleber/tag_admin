@@ -101,7 +101,7 @@ Citizen.CreateThread(function ()
             local pedpos = GetEntityCoords(ped)
 			local playerpedpos = GetEntityCoords(playerped)
 			local distance = #(playerpedpos - pedpos)
-			local x, y, z = table.unpack(GetEntityCoords(ped))
+			local x2, y2, z2 = table.unpack(GetEntityCoords(ped))
 			local offset = 0.8 + displayTAGHeight * 0.1
 			z = z + offset
 			
