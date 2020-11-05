@@ -103,7 +103,7 @@ Citizen.CreateThread(function ()
 			local distance = #(playerpedpos - pedpos)
 			local x2, y2, z2 = table.unpack(GetEntityCoords(ped))
 			local offset = 0.8 + displayTAGHeight * 0.1
-			z = z + offset
+			z2 = z2 + offset
 			
 			if not SeeSelfTag then 
                 if ped ~= playerped then
@@ -246,7 +246,7 @@ end)
 
 
 
-function DrawText3D(coords, text)
+function DrawText3DTag(coords, text)
     local camCoords = GetGameplayCamCoord()
     local dist = #(coords - camCoords)
     
