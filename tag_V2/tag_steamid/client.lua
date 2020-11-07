@@ -111,28 +111,28 @@ Citizen.CreateThread(function ()
 						for i,l in ipairs(stringsplit(TagSuperAdmin, "\n")) do
 			            	for i = 1, #l do
 						    	if l == tostring(GetPlayerServerId(player)) then
-		                        	DrawText3DTag(x2, y2, z2 + displayTAGHeight, "SUPER ADMIN")
+		                        	DrawText3DTag(vector3(x2, y2, z2), "SUPER ADMIN")
 								end
 							end
 			       	    end
 						for i,l in ipairs(stringsplit(TagAdmin, "\n")) do
 			           	    for i = 1, #l do
 						    	if l == tostring(GetPlayerServerId(player)) then
-		                        	DrawText3DTag(x2, y2, z2 + displayTAGHeight, "ADMIN")
+		                        	DrawText3DTag(vector3(x2, y2, z2), "ADMIN")
 								end
 							end
 			        	end
 						for i,l in ipairs(stringsplit(TagMod, "\n")) do
 			            	for i = 1, #l do
 						    	if l == tostring(GetPlayerServerId(player)) then
-		                        	DrawText3DTag(x2, y2, z2 + displayTAGHeight, "MOD")
+		                        	DrawText3DTag(vector3(x2, y2, z2), "MOD")
 								end
 							end
 			        	end
 						for i,l in ipairs(stringsplit(TagHelper, "\n")) do
 			            	for i = 1, #l do
 						    	if l == tostring(GetPlayerServerId(player)) then
-		                        	DrawText3DTag(x2, y2, z2 + displayTAGHeight, "HELPER")
+		                        	DrawText3DTag(vector3(x2, y2, z2), "HELPER")
 								end
 							end
 			        	end
@@ -142,28 +142,28 @@ Citizen.CreateThread(function ()
 					            for i,l in ipairs(stringsplit(TagSuperAdmin, "\n")) do
 			                        for i = 1, #l do
 						                if l == tostring(GetPlayerServerId(player)) then
-		                                    DrawText3DTag(x2, y2, z2 + displayTAGHeight, "SUPER ADMIN")
+		                                    DrawText3DTag(vector3(x2, y2, z2), "SUPER ADMIN")
 							            end
 						            end
 								end
 						        for i,l in ipairs(stringsplit(TagAdmin, "\n")) do
 			                        for i = 1, #l do
 						                if l == tostring(GetPlayerServerId(player)) then
-		                                    DrawText3DTag(x2, y2, z2 + displayTAGHeight, "ADMIN")
+		                                    DrawText3DTag(vector3(x2, y2, z2), "ADMIN")
 							            end
 						            end
 								end
 						        for i,l in ipairs(stringsplit(TagMod, "\n")) do
 			                        for i = 1, #l do
 						                if l == tostring(GetPlayerServerId(player)) then
-		                                    DrawText3DTag(x2, y2, z2 + displayTAGHeight, "MOD")
+		                                    DrawText3DTag(vector3(x2, y2, z2), "MOD")
 							            end
 									end
 						        end
 						        for i,l in ipairs(stringsplit(TagHelper, "\n")) do
 			                        for i = 1, #l do
 						                if l == tostring(GetPlayerServerId(player)) then
-		                                    DrawText3DTag(x2, y2, z2 + displayTAGHeight, "HELPER")
+		                                    DrawText3DTag(vector3(x2, y2, z2), "HELPER")
 										end
 									end
 							    end
@@ -176,7 +176,7 @@ Citizen.CreateThread(function ()
 					for i,l in ipairs(stringsplit(TagSuperAdmin, "\n")) do
 			            for i = 1, #l do
 						    if l == tostring(GetPlayerServerId(player)) then
-		                        DrawText3DTag(x2, y2, z2 + displayTAGHeight, "SUPER ADMIN")
+		                        DrawText3DTag(vector3(x2, y2, z2), "SUPER ADMIN")
 							end
 						end
 			        end
@@ -184,7 +184,7 @@ Citizen.CreateThread(function ()
 				    for i,l in ipairs(stringsplit(TagAdmin, "\n")) do
 			            for i = 1, #l do
 						    if l == tostring(GetPlayerServerId(player)) then
-		                        DrawText3DTag(x2, y2, z2 + displayTAGHeight, "ADMIN")
+		                        DrawText3DTag(vector3(x2, y2, z2), "ADMIN")
 							end
 						end
 			        end
@@ -192,7 +192,7 @@ Citizen.CreateThread(function ()
 				    for i,l in ipairs(stringsplit(TagMod, "\n")) do
 			            for i = 1, #l do
 						    if l == tostring(GetPlayerServerId(player)) then
-		                        DrawText3DTag(x2, y2, z2 + displayTAGHeight, "MOD")
+		                        DrawText3DTag(vector3(x2, y2, z2), "MOD")
 							end
 						end
 			        end
@@ -200,7 +200,7 @@ Citizen.CreateThread(function ()
 				    for i,l in ipairs(stringsplit(TagHelper, "\n")) do
 			            for i = 1, #l do
 						    if l == tostring(GetPlayerServerId(player)) then
-		                        DrawText3DTag(x2, y2, z2 + displayTAGHeight, "HELPER")
+		                        DrawText3DTag(vector3(x2, y2, z2), "HELPER")
 							end
 						end
 			        end
@@ -210,7 +210,7 @@ Citizen.CreateThread(function ()
 					        for i,l in ipairs(stringsplit(TagSuperAdmin, "\n")) do
                                 for i = 1, #l do
 						            if l == tostring(GetPlayerServerId(player)) then
-		                                DrawText3DTag(x2, y2, z2 + displayTAGHeight, "SUPER ADMIN")
+		                                DrawText3DTag(vector3(x2, y2, z2), "SUPER ADMIN")
 			                        end
 								end
 							end
@@ -218,21 +218,21 @@ Citizen.CreateThread(function ()
 						for i,l in ipairs(stringsplit(TagAdmin, "\n")) do
 			                for i = 1, #l do
 						        if l == tostring(GetPlayerServerId(player)) then
-		                            DrawText3DTag(x2, y2, z2 + displayTAGHeight, "ADMIN")
+		                            DrawText3DTag(vector3(x2, y2, z2), "ADMIN")
 							    end
 						    end
 			            end
 						for i,l in ipairs(stringsplit(TagMod, "\n")) do
 			                for i = 1, #l do
 						        if l == tostring(GetPlayerServerId(player)) then
-		                            DrawText3DTag(x2, y2, z2 + displayTAGHeight, "MOD")
+		                            DrawText3DTag(vector3(x2, y2, z2), "MOD")
 							    end
 						    end
 			            end
 						for i,l in ipairs(stringsplit(TagHelper, "\n")) do
 			                for i = 1, #l do
 						        if l == tostring(GetPlayerServerId(player)) then
-		                            DrawText3DTag(x2, y2, z2 + displayTAGHeight, "HELPER")
+		                            DrawText3DTag(vector3(x2, y2, z2), "HELPER")
 							    end
 						    end
 			            end
