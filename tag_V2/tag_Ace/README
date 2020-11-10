@@ -24,8 +24,9 @@ ModoDebug = false -- Activate debug mode, for nerds hehe
 
 3. Add your Admins steamid or license to you server “server.cfg”:
 
-add_ace group.moderator cheleber.tagmod allow	  # allow tagmod for admins
-add_ace group.moderator cheleber.tagmod deny		 # deny tag moderators
+add_ace group.moderator cheleber.tag allow	  # allow command /tag for moderator
+add_ace group.moderator cheleber.tagmod allow	  # allow tagmod for moderator
+add_ace group.moderator cheleber.tagmod deny		 # deny tag for moderators
 add_ace identifier.steam:110000112345678 cheleber.tagsuperadmin allow		 # allow tag.tagsuperadmin for identifier.steam:110000112345678
 add_principal identifier.steam:110000112345678 group.moderator # allow identifier.steam:110000112345678 in group.moderator
 
