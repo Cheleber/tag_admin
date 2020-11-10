@@ -24,10 +24,10 @@ ModoDebug = false -- Activate debug mode, for nerds hehe
 
 3. Add your Admins steamid or license to you server “server.cfg”:
 
-add_ace group.admin cheleber allow	             # allow cheleber for admins
-add_ace group.moderator cheleber allow 			 # allow cheleber for moderators
-add_ace group.moderator cheleber.tag deny		 # deny tag for moderators
-add_principal identifier.steam:110000112345678 group.admin # allow identifier.steam:110000112345678 to the admin group
-add_principal identifier.steam:110000112345678 cheleber allow # allow cheleber for identifier.steam:110000112345678.
+add_ace group.moderator cheleber.tag allow	  # allow command /tag for moderator
+add_ace group.moderator cheleber.tagmod allow	  # allow tagmod for moderator
+add_ace group.moderator cheleber.tagmod deny		 # deny tag for moderators
+add_ace identifier.steam:110000112345678 cheleber.tagsuperadmin allow		 # allow tag.tagsuperadmin for identifier.steam:110000112345678
+add_principal identifier.steam:110000112345678 group.moderator # allow identifier.steam:110000112345678 in group.moderator
 
 4. Start your server!
