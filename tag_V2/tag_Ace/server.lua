@@ -187,7 +187,7 @@ function CheleberCleanTagTable()
 end
 
 RegisterCommand("tag", function(source, args, rawCommand)
-    if IsPlayerAceAllowed(playerId, "cheleber.tagsuperadmin") then
+    if IsPlayerAceAllowed(source, "cheleber.tagsuperadmin") then
 	    if tagonchecksuperadmin[source] == true  then
 			tagonchecksuperadmin[source] = false
 		    superadminindex = 0
@@ -206,7 +206,7 @@ RegisterCommand("tag", function(source, args, rawCommand)
 			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
 	end
-	if IsPlayerAceAllowed(playerId, "cheleber.tagadmin") then
+	if IsPlayerAceAllowed(source, "cheleber.tagadmin") then
 	    if tagoncheckadmin[source] == true  then
 			tagoncheckadmin[source] = false
 		    adminindex = 0
@@ -225,7 +225,7 @@ RegisterCommand("tag", function(source, args, rawCommand)
 			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
 	end
-    if IsPlayerAceAllowed(playerId, "cheleber.tagmod") then
+    if IsPlayerAceAllowed(source, "cheleber.tagmod") then
 	    if tagoncheckmod[source] == true  then
 			tagoncheckmod[source] = false
 		    modindex = 0
@@ -244,7 +244,7 @@ RegisterCommand("tag", function(source, args, rawCommand)
 			TriggerClientEvent('chatMessage', source, "Tag ON!")
 		end
 	end
-	if IsPlayerAceAllowed(playerId, "cheleber.taghelper") then
+	if IsPlayerAceAllowed(source, "cheleber.taghelper") then
 	    if tagoncheckhelper[source] == true  then
 			tagoncheckhelper[source] = false
 		    helperindex = 0
