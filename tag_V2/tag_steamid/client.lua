@@ -1,3 +1,4 @@
+
 local TagSuperAdmin = 'nil' -- DONT TOUCH PLEASE 
 local TagAdmin = 'nil' -- DONT TOUCH PLEASE 
 local TagMod = 'nil'  -- DONT TOUCH PLEASE 
@@ -218,7 +219,7 @@ Citizen.CreateThread(function ()
 						for i,l in ipairs(stringsplit(TagAdmin, "\n")) do
 			                for i = 1, #l do
 						        if l == tostring(GetPlayerServerId(player)) then
-		                            DrawText3DTag(vector3(x2, y2, z2), "ADMIN")
+		                            DrawText3DTag(vector3(x2, y2, z2),  "ADMIN")
 							    end
 						    end
 			            end
